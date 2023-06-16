@@ -17,7 +17,7 @@ services:
   emulator:
     image: emulator_emulator:latest
     build:
-      context: ../../bld/emulator
+      context: ../../bld
       dockerfile: Dockerfile
     networks:
       envoymesh:
@@ -27,6 +27,8 @@ services:
     shm_size: 128M
     expose:
       - "8554"
+    environment:
+      - TURN=printf $SNIPPET
   nginx:
     image: emulator_nginx:latest
     build:
